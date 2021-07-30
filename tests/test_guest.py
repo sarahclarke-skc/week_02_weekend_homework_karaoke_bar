@@ -12,7 +12,7 @@ class TestGuest(unittest.TestCase):
         self.guest3 = Guest("Paul McCartney", 18, 15000)
         self.guest4 = Guest("George Harrison", 17, 500)
 
-        self.karaoke = Karaoke("Codeclan Caraoke")
+        self.karaoke = Karaoke("Codeclan Caraoke", 1000)
     
     def test_guest_has_name(self):
         self.assertEqual("John Lennon", self.guest1.name)
@@ -24,9 +24,15 @@ class TestGuest(unittest.TestCase):
         self.assertEqual(20000, self.guest1.wallet)
     
     def test_guest_can_afford_entry_true(self):
-        self.karaoke.can_afford_entry(self.guest1)
-        self.assertEqual(True, self.karaoke.can_afford_entry(self.guest1))
+        self.assertEqual(True, self.guest1.can_afford_entry(self.karaoke))
     
     def test_guest_can_afford_entry_false(self):
-        self.karaoke.can_afford_entry(self.guest4)
-        self.assertEqual(False, self.karaoke.can_afford_entry(self.guest4))
+        self.assertEqual(False, self.guest4.can_afford_entry(self.karaoke))
+    
+    def test_guest_pays_for_entry(self):
+        self.guest1.pay_for_entry(self.karaoke)
+        self.assertEqual(19000, self.guest1.wallet)
+    
+    def test_guest_pays_for_entry(self):
+        self.guest4.pay_for_entry(self.karaoke)
+        self.assertEqual(None, None)

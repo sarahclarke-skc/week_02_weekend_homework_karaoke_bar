@@ -1,11 +1,9 @@
 class Karaoke:
 
-    def __init__(self, name):
+    def __init__(self, name, entry_fee):
         self.name = name
-        self.entry_fee = 1000
+        self.entry_fee = entry_fee
+        self.guests = []
 
-    def can_afford_entry(self, guest):
-        if guest.wallet >= self.entry_fee:
-            return True
-        else:
-            return False
+
+    
