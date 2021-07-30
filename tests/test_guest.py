@@ -11,6 +11,7 @@ class TestGuest(unittest.TestCase):
         self.guest2 = Guest("Ringo Starr", 20, 23000)
         self.guest3 = Guest("Paul McCartney", 18, 15000)
         self.guest4 = Guest("George Harrison", 17, 500)
+        self.guests = [self.guest1, self.guest2, self.guest3, self.guest4]
 
         self.karaoke = Karaoke("Codeclan Caraoke", 1000)
     
@@ -33,6 +34,3 @@ class TestGuest(unittest.TestCase):
         self.guest1.pay_for_entry(self.karaoke)
         self.assertEqual(19000, self.guest1.wallet)
     
-    def test_guest_pays_for_entry(self):
-        self.guest4.pay_for_entry(self.karaoke)
-        self.assertEqual(None, None)
