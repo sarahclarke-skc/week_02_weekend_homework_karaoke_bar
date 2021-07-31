@@ -1,22 +1,22 @@
 import unittest
 
-from src.karaoke import Karaoke
+# from src.karaoke import Karaoke
 from src.room import Room
 from src.song import Song
 from src.guest import Guest
 
 class TestRoom(unittest.TestCase):
     def setUp(self):
-        self.room1 = Room("The Ratpack", 3)
-        self.room2 = Room("The Beach Boys", 10)
-        self.room3 = Room('The Everly Brothers', 8)
+        self.room1 = Room("The Ratpack", 3, 1000)
+        self.room2 = Room("The Beach Boys", 10, 5000)
+        self.room3 = Room('The Everly Brothers', 8, 3000)
         rooms = [self.room1, self.room2, self.room3]
 
         self.guest1 = Guest("John Lennon", 20, 20000)
         self.guest2 = Guest("Ringo Starr", 20, 23000)
         self.guest3 = Guest("Paul McCartney", 18, 15000)
         self.guest4 = Guest("George Harrison", 17, 500)
-        # self.guests = [self.guest1, self.guest2, self.guest3, self.guest4]
+        
         self.guests_in_room = []
     
     def test_room_has_name(self):
@@ -24,6 +24,9 @@ class TestRoom(unittest.TestCase):
 
     def test_room_has_capacity(self):
         self.assertEqual(3, self.room1.capacity)
+    
+    def test_room_has_entry_fee(self):
+        self.assertEqual(1000, self.room1.entry_fee)
 
     def test_room_starts_with_no_guests(self):
         num_guests_in_room = self.room1.count_guests_in_room()
