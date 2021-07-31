@@ -1,7 +1,6 @@
 import unittest
 
 from src.guest import Guest
-# from src.karaoke import Karaoke
 from src.room import Room
 from src.song import Song
 
@@ -26,18 +25,23 @@ class TestGuest(unittest.TestCase):
         self.assertEqual(20000, self.guest1.wallet)
     
     def test_guest_can_afford_entry_true(self):
-        can_afford_entry = self.guest1.can_afford_entry(self.room1)
+        entry_fee = self.room1.entry_fee
+        can_afford_entry = self.guest1.can_afford_entry(entry_fee)
         self.assertEqual(True, can_afford_entry)
-    
-    def test_guest_can_afford_entry_false(self):
-        cannot_afford_entry = self.guest4.can_afford_entry(self.room1)
-        self.assertEqual(False, cannot_afford_entry)
-    
-    def test_guest_pays_for_entry(self):
-        self.guest1.pay_for_entry(self.room1)
-        self.assertEqual(19000, self.guest1.wallet)
 
+    def test_guest_can_afford_entry_false(self):
+        entry_fee = self.room1.entry_fee
+        can_afford_entry = self.guest4.can_afford_entry(entry_fee)
+        self.assertEqual(False, can_afford_entry)
+    
     def test_guest_pays_for_entry(self):
-        guest_cannot_pay = self.guest4.pay_for_entry(self.room1)
+        amount = self.room1.entry_fee
+        self.guest1.pay_for_entry(amount)
+        wallet = self.guest1.wallet
+        self.assertEqual(19000, wallet)
+
+    def test_guest_pays_for_entry_insufficient(self):
+        amount = self.room1.entry_fee
+        guest_cannot_pay = self.guest4.pay_for_entry(amount)
         self.assertEqual(None, guest_cannot_pay)
     

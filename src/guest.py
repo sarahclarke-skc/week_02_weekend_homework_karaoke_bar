@@ -5,12 +5,11 @@ class Guest:
         self.age = age
         self.wallet = wallet
     
-    def can_afford_entry(self, room):
-        if self.wallet >= room.entry_fee:
+    def can_afford_entry(self, amount):
+        if self.wallet >= amount:
             return True
         else:
             return False
     
-    def pay_for_entry(self, room):
-        self.can_afford_entry(room)
-        self.wallet -= room.entry_fee
+    def pay_for_entry(self, amount):
+        self.wallet -= amount
