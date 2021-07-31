@@ -14,6 +14,10 @@ class TestGuest(unittest.TestCase):
 
         # self.karaoke = Karaoke("Codeclan Caraoke", 1000)
         self.room1 = Room("The Ratpack", 3, 1000)
+
+        self.song1 = Song("Satisfaction", "The Rolling Stones")
+        self.song2 = Song("Daydream Believer", "The Monkees")
+        self.songs = [self.song1, self.song2]
     
     def test_guest_has_name(self):
         self.assertEqual("John Lennon", self.guest1.name)
@@ -44,4 +48,7 @@ class TestGuest(unittest.TestCase):
         amount = self.room1.entry_fee
         guest_cannot_pay = self.guest4.pay_for_entry(amount)
         self.assertEqual(None, guest_cannot_pay)
-    
+
+    # def test_guest_fave_song_comes_on(self):
+    #     self.guest1.fave_song_comes_on(self, self.guest1.favourite_song)
+    #     self.assertEqual("Let me sing!", self.guest1.fave_song_comes_on(self.guest1.favourite_song))
