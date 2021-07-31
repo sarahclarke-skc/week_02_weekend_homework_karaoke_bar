@@ -1,10 +1,10 @@
 class Guest:
 
-    def __init__(self, name, age, wallet):
+    def __init__(self, name, age, wallet, song):
         self.name = name
         self.age = age
         self.wallet = wallet
-        self.favourite_song = ""
+        self.favourite_song = song
     
     def can_afford_entry(self, amount):
         if self.wallet >= amount:
@@ -14,7 +14,3 @@ class Guest:
     
     def pay_for_entry(self, amount):
         self.wallet -= amount
-    
-    # def fave_song_comes_on(self, song):
-    #     if self.favourite_song == song:
-    #             return "Let me sing!"

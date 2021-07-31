@@ -11,23 +11,29 @@ class TestRoom(unittest.TestCase):
         self.room3 = Room('The Everly Brothers', 8, 3000)
         self.rooms = [self.room1, self.room2, self.room3]
 
-        self.guest1 = Guest("John Lennon", 20, 20000)
-        self.guest2 = Guest("Ringo Starr", 20, 23000)
-        self.guest3 = Guest("Paul McCartney", 18, 15000)
-        self.guest4 = Guest("George Harrison", 17, 500)
+        self.guest1 = Guest("John Lennon", 20, 20000, "Satisfaction")
+        self.guest2 = Guest("Ringo Starr", 20, 23000, "Daydream Believer")
+        self.guest3 = Guest("Paul McCartney", 18, 15000, "Hoochie Coochie Man")
+        self.guest4 = Guest("George Harrison", 17, 500, "Kokomo")
 
         self.song1 = Song("Satisfaction", "The Rolling Stones")
         self.song2 = Song("Daydream Believer", "The Monkees")
         self.songs = [self.song1, self.song2]
 
     def test_room_has_name(self):
-        self.assertEqual("The Ratpack", self.room1.room_name)
+        expected = "The Ratpack"
+        actual = self.room1.room_name
+        self.assertEqual(expected, actual)
 
     def test_get_capacity(self):
-        self.assertEqual(3, self.room1.capacity)
+        expected = 3
+        actual = self.room1.capacity
+        self.assertEqual(expected, actual)
     
     def test_get_room_entry_fee(self):
-        self.assertEqual(1000, self.room1.entry_fee)
+        expected = 1000
+        actual = self.room1.entry_fee
+        self.assertEqual(expected, actual)
 
     def test_room_starts_with_no_guests(self):
         num_guests_in_room = len(self.room1.guests)
@@ -61,7 +67,6 @@ class TestRoom(unittest.TestCase):
         self.assertEqual(1, len(room.guests))
         # self.assertEqual(["John Lennon"], self.room1.guests)
         
-    #test remove guest from room
     def test_check_out_guest(self):
         self.room1.full_check_in_to_room(self.guest1)
         self.room1.full_check_in_to_room(self.guest2)
@@ -80,3 +85,4 @@ class TestRoom(unittest.TestCase):
         songs = [self.song1, self.song2]
         self.room1.add_songs_to_room(songs)
         self.assertEqual(2, len(self.room1.playlist))
+    

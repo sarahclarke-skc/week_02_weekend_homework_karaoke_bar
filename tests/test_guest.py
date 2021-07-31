@@ -6,10 +6,10 @@ from src.song import Song
 
 class TestGuest(unittest.TestCase):
     def setUp(self):
-        self.guest1 = Guest("John Lennon", 20, 20000)
-        self.guest2 = Guest("Ringo Starr", 20, 23000)
-        self.guest3 = Guest("Paul McCartney", 18, 15000)
-        self.guest4 = Guest("George Harrison", 17, 500)
+        self.guest1 = Guest("John Lennon", 20, 20000, "Satisfaction")
+        self.guest2 = Guest("Ringo Starr", 20, 23000, "Daydream Believer")
+        self.guest3 = Guest("Paul McCartney", 18, 15000, "Hoochie Coochie Man")
+        self.guest4 = Guest("George Harrison", 17, 500, "Kokomo")
         self.guests = [self.guest1, self.guest2, self.guest3, self.guest4]
 
         # self.karaoke = Karaoke("Codeclan Caraoke", 1000)
@@ -17,7 +17,7 @@ class TestGuest(unittest.TestCase):
 
         self.song1 = Song("Satisfaction", "The Rolling Stones")
         self.song2 = Song("Daydream Believer", "The Monkees")
-        self.songs = [self.song1, self.song2]
+
     
     def test_guest_has_name(self):
         self.assertEqual("John Lennon", self.guest1.name)
@@ -48,7 +48,9 @@ class TestGuest(unittest.TestCase):
         amount = self.room1.entry_fee
         guest_cannot_pay = self.guest4.pay_for_entry(amount)
         self.assertEqual(None, guest_cannot_pay)
+    
+    def test_guest_has_favourite_song(self):
+        self.assertEqual("Satisfaction", self.guest1.favourite_song)
 
-    # def test_guest_fave_song_comes_on(self):
-    #     self.guest1.fave_song_comes_on(self, self.guest1.favourite_song)
-    #     self.assertEqual("Let me sing!", self.guest1.fave_song_comes_on(self.guest1.favourite_song))
+    
+    
