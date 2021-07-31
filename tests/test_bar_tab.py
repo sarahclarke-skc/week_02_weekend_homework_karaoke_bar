@@ -48,11 +48,6 @@ class TestBarTab(unittest.TestCase):
     def test_bar_tab_start_with_zero(self):
         self.assertEqual(0, self.bar_tab1.tab_total)
 
-    def test_add_to_tab_list(self):
-        self.bar_tab1.add_item_to_tab_list(self.drinks_menu[0])
-        self.bar_tab1.add_item_to_tab_list(self.drinks_menu [1])
-        self.assertEqual(2, len(self.bar_tab1.tab_list))
-
     def test_legal_sale_true(self):
         guest = self.guest1
         self.assertEqual(True, self.bar_tab1.legal_sale(guest))
@@ -60,6 +55,12 @@ class TestBarTab(unittest.TestCase):
     def test_legal_sale_false(self):
         guest = self.guest4
         self.assertEqual("You aren't old enough yet.", self.bar_tab1.legal_sale(guest))
+
+    def test_add_to_tab_list(self):
+        guest = self.guest1
+        self.bar_tab1.add_item_to_tab_list(self.drinks_menu[0])
+        self.bar_tab1.add_item_to_tab_list(self.drinks_menu [1])
+        self.assertEqual(2, len(self.bar_tab1.tab_list))
 
     @unittest.skip("delete this line to run the test")
     def test_sum_tab_total(self):

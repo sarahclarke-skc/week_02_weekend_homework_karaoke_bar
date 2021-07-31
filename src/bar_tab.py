@@ -6,14 +6,14 @@ class BarTab:
         self.tab_total = 0
         self.tab_list = []
     
-    def add_item_to_tab_list(self, item):
-        self.tab_list.append(item)
-    
     def legal_sale(self, guest):
         if guest.age >= 18:
             return True
         else:
             return "You aren't old enough yet."
+    
+    def add_item_to_tab_list(self, item):
+        self.tab_list.append(item)
 
   # Can't get the test to pass --> list indices must be intergers or slices
     # def sum_total_tab(self):

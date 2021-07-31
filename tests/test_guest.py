@@ -17,7 +17,6 @@ class TestGuest(unittest.TestCase):
 
         self.song1 = Song("Satisfaction", "The Rolling Stones")
         self.song2 = Song("Daydream Believer", "The Monkees")
-
     
     def test_guest_has_name(self):
         self.assertEqual("John Lennon", self.guest1.name)
@@ -51,6 +50,10 @@ class TestGuest(unittest.TestCase):
     
     def test_guest_has_favourite_song(self):
         self.assertEqual("Satisfaction", self.guest1.favourite_song)
-
     
-    
+    # def test_guest_finds_song_in_room(self):
+    #     song = self.guest1.favourite_song
+    #     find_song = self.guest1.find_song_in_room(song)
+    #     self.songs = [self.song1, self.song2]
+    #     self.guest1.find_song_in_room(song)
+    #     self.assertEqual("Woohoo! Pass me the mic!", find_song)
