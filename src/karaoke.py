@@ -5,6 +5,9 @@ class Karaoke:
         self.entry_fee = entry_fee
         self.cash_register = 10000
         self.guests = []
+    
+    def count_guests(self):
+        return len(self.guests)
 
     def take_entry_fee(self, entry_fee):
         self.cash_register += entry_fee

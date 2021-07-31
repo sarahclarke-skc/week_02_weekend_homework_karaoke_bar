@@ -16,8 +16,16 @@ class TestKaraoke(unittest.TestCase):
     def test_karaoke_bar_has_entry_fee(self):
         self.assertEqual(1000, self.karaoke.entry_fee)
 
+    def test_karaoke_bar_starts_with_no_guests(self):
+        self.assertEqual(0, self.karaoke.count_guests())
+
     def test_karaoke_bar_takes_entry_fee(self):
         self.karaoke.take_entry_fee(self.karaoke.entry_fee)
-        self.assertEqual(11000, self.karaoke.cash_register)
+        till_after_payment = self.karaoke.cash_register
+        self.assertEqual(11000, till_after_payment)
+
+    
+    
+
 
     

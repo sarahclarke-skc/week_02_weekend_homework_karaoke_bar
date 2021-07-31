@@ -3,6 +3,14 @@ class Room:
     def __init__(self, room_name, capacity):
         self.room_name = room_name
         self.capacity = capacity
-        self.songs =[]
         self.guests = []
-    
+        self.songs =[]
+
+    def count_guests_in_room(self):
+        return len(self.guests)
+
+    def free_space_in_room(self):
+        return self.capacity - len(self.guests)
+
+    def add_guest_to_room(self, guest):
+        self.guests.append(guest)

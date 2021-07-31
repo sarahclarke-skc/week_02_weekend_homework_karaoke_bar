@@ -25,12 +25,18 @@ class TestGuest(unittest.TestCase):
         self.assertEqual(20000, self.guest1.wallet)
     
     def test_guest_can_afford_entry_true(self):
-        self.assertEqual(True, self.guest1.can_afford_entry(self.karaoke))
+        can_afford_entry = self.guest1.can_afford_entry(self.karaoke)
+        self.assertEqual(True, can_afford_entry)
     
     def test_guest_can_afford_entry_false(self):
-        self.assertEqual(False, self.guest4.can_afford_entry(self.karaoke))
+        cannot_afford_entry = self.guest4.can_afford_entry(self.karaoke)
+        self.assertEqual(False, cannot_afford_entry)
     
     def test_guest_pays_for_entry(self):
         self.guest1.pay_for_entry(self.karaoke)
         self.assertEqual(19000, self.guest1.wallet)
+
+    def test_guest_pays_for_entry(self):
+        guest_cannot_pay = self.guest4.pay_for_entry(self.karaoke)
+        self.assertEqual(None, guest_cannot_pay)
     
