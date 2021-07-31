@@ -13,4 +13,8 @@ class Room:
         return self.capacity - len(self.guests)
 
     def add_guest_to_room(self, guest):
-        self.guests.append(guest)
+        if self.capacity >= len(self.guests):
+            self.guests.append(guest)
+        else:
+            return "Sorry, this room is taken"
+

@@ -7,7 +7,7 @@ from src.guest import Guest
 
 class TestRoom(unittest.TestCase):
     def setUp(self):
-        self.room1 = Room("The Ratpack", 5)
+        self.room1 = Room("The Ratpack", 3)
         self.room2 = Room("The Beach Boys", 10)
         self.room3 = Room('The Everly Brothers', 8)
         rooms = [self.room1, self.room2, self.room3]
@@ -23,7 +23,7 @@ class TestRoom(unittest.TestCase):
         self.assertEqual("The Ratpack", self.room1.room_name)
 
     def test_room_has_capacity(self):
-        self.assertEqual(5, self.room1.capacity)
+        self.assertEqual(3, self.room1.capacity)
 
     def test_room_starts_with_no_guests(self):
         num_guests_in_room = self.room1.count_guests_in_room()
@@ -31,9 +31,19 @@ class TestRoom(unittest.TestCase):
     
     def test_free_spaces(self):
         free_spaces = self.room1.free_space_in_room()
-        self.assertEqual(5, free_spaces)
+        self.assertEqual(3, free_spaces)
     
     def test_add_guest_to_room(self):
         self.room1.add_guest_to_room(self.guest1)
         self.room1.add_guest_to_room(self.guest2)
         self.assertEqual(2, len(self.room1.guests))
+    
+    def test_room_full(self):
+        self.room1.add_guest_to_room(self.guest1)
+        self.room1.add_guest_to_room(self.guest2)
+        self.room1.add_guest_to_room(self.guest3)
+        self.room1.add_guest_to_room(self.guest4)
+        self.assertEqual("Sorry, this room is taken", self.room1.add_guest_to_room(self.guest4))
+    
+    #test remove guest from room
+    #add songs to rooms
