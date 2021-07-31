@@ -36,6 +36,6 @@ class Room:
     def add_song_to_room(self, song):
         self.playlist.append(song)
     
-    # def add_songs_to_room(self):
-    #     for song in self.songs:
-    #         self.songs.append(song)
+    def add_songs_to_room(self, songs):
+        for song in songs:
+            self.playlist.append(song)
