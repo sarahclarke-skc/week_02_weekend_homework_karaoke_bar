@@ -69,7 +69,7 @@ class TestBarTab(unittest.TestCase):
         self.bar_tab1.sum_total_tab()
         self.assertEqual(650, self.bar_tab1.tab_total)
     
-    def test_clear_tab_list_after_payment(self):
+    def test_clear_tab_list(self):
         self.bar_tab1.add_item_to_tab_list(self.drinks_menu[0])
         self.bar_tab1.add_item_to_tab_list(self.drinks_menu [1])
         self.bar_tab1.clear_tab_list()
@@ -79,9 +79,12 @@ class TestBarTab(unittest.TestCase):
         bar_tab = 1000
         self.room1.take_bar_tab_payment(bar_tab)
         self.assertEqual(11000, self.room1.cash_register)
-    # def test_bar_tab_transaction(self):
-    #     self.bar_tab1.bar_tab_transaction()
-    #     self.assertEqual([], self.bar_tab1.tab_list)
-    #     self.assertEqual(0, self.bar_tab1.tab_total)
-    #     self.assertEqual(19350, self.guest1.wallet)
-    #     self.assertEqual(10650, self.room1.cash_register)
+
+    def test_bar_tab_transaction(self):
+        self.bar_tab1.add_item_to_tab_list(self.drinks_menu[0])
+        self.bar_tab1.add_item_to_tab_list(self.drinks_menu [1])
+        self.room1.bar_tab_transaction(self.guest1, self.room1, self.bar_tab1)
+        self.assertEqual(19350, self.guest1.wallet)
+        self.assertEqual(10650, self.room1.cash_register)
+        self.assertEqual([], self.bar_tab1.tab_list)
+        self.assertEqual(0, self.bar_tab1.tab_total)
