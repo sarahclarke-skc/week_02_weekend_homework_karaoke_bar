@@ -42,15 +42,11 @@ class Room:
     
     def is_guest_in_room(self, guest):
         return guest in self.guests
-
-    # def is_guest_in_room(self, guest):
-    #     for person in self.guests:
-    #         if guest == person:
-    #             return True
-    #     else:
-    #         return False
     
-    # def find_song_by_title(self, song_title):
-    #     for song in self.playlist:
-    #         if song == song_title:
-    #             return song
+    def guest_reaction(self, guest):
+        if guest.favourite_song in self.playlist:
+            return "Woohoo! Pass me the mic!"
+        else:
+             return "We should have gone somewhere else!"
+
+ 

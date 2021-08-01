@@ -86,16 +86,22 @@ class TestRoom(unittest.TestCase):
         self.room1.add_songs_to_room(songs)
         self.assertEqual(2, len(self.room1.playlist))
 
-    def test_is_guest_in_room(self):
+    def test_is_guest_in_room_true(self):
         guest = self.guest1
         self.room1.add_guest_to_room(guest)
         self.assertEqual(True, self.room1.is_guest_in_room(guest))
     
-    def test_is_guest_in_room(self):
+    def test_is_guest_in_room_false(self):
         guest = self.guest1
         self.assertEqual(False, self.room1.is_guest_in_room(guest))
     
-    # def test_find_song_by_title(self):
-    #     self.room1.add_songs_to_room(self.songs)
-    #     song = self.room1.find_song_by_title("Satisfaction")
-    #     self.assertEqual(self.song1.song_name, song)
+    def test_guest_reaction_positive(self):
+        guest = self.guest1
+        self.room1.add_song_to_room(self.guest1.favourite_song)
+        self.assertEqual("Woohoo! Pass me the mic!", self.room1.guest_reaction(guest))
+
+    def test_guest_reaction_negative(self):
+        guest = self.guest1
+        self.room1.add_song_to_room(self.guest2.favourite_song)
+        self.assertEqual("We should have gone somewhere else!", self.room1.guest_reaction(guest))
+    

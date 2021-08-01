@@ -15,9 +15,6 @@ class Guest:
     def pay_for_entry(self, amount):
         self.wallet -= amount
 
-    def find_song_in_room(self, song):
-    #     self.playlist = Room.playlist
-    #     for song in self.playlist:
-    #         if song == self.favourite_song:
+    # def guest_reaction(self, room, song):
+    #         if song in room.playlist == self.favourite_song:
     #             return "Woohoo! Pass me the mic!"
-
