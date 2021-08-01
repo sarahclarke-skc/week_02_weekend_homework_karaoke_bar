@@ -85,6 +85,15 @@ class TestRoom(unittest.TestCase):
         songs = [self.song1, self.song2]
         self.room1.add_songs_to_room(songs)
         self.assertEqual(2, len(self.room1.playlist))
+
+    def test_is_guest_in_room(self):
+        guest = self.guest1
+        self.room1.add_guest_to_room(guest)
+        self.assertEqual(True, self.room1.is_guest_in_room(guest))
+    
+    def test_is_guest_in_room(self):
+        guest = self.guest1
+        self.assertEqual(False, self.room1.is_guest_in_room(guest))
     
     # def test_find_song_by_title(self):
     #     self.room1.add_songs_to_room(self.songs)

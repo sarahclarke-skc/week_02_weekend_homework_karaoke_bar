@@ -1,4 +1,3 @@
-from src.song import Song
 class Room:
 
     def __init__(self, room_name, capacity, entry_fee):
@@ -40,6 +39,16 @@ class Room:
     def add_songs_to_room(self, songs):
         for song in songs:
             self.playlist.append(song)
+    
+    def is_guest_in_room(self, guest):
+        return guest in self.guests
+
+    # def is_guest_in_room(self, guest):
+    #     for person in self.guests:
+    #         if guest == person:
+    #             return True
+    #     else:
+    #         return False
     
     # def find_song_by_title(self, song_title):
     #     for song in self.playlist:

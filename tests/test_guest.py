@@ -50,6 +50,7 @@ class TestGuest(unittest.TestCase):
     
     def test_guest_has_favourite_song(self):
         self.assertEqual("Satisfaction", self.guest1.favourite_song)
+
     
     # def test_guest_finds_song_in_room(self):
     #     song = self.guest1.favourite_song
