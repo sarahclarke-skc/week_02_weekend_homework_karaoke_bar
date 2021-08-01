@@ -58,3 +58,4 @@ class TestGuest(unittest.TestCase):
         self.bar_tab1.tab_total = 650
         self.guest1.guest_pays_tab_total(self.bar_tab1.tab_total)
         self.assertEqual(19350, self.guest1.wallet)
+
