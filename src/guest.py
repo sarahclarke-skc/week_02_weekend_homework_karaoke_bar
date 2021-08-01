@@ -22,7 +22,7 @@ class Guest:
             return "Insufficient funds"
     
     def guest_pays_tab_total(self, amount):
-        if self.can_afford_payment(amount) == True:
+        if self.can_afford_payment(amount) == True and self.age >= 18:
             self.wallet -= amount
         else:
             return "Insufficient funds"

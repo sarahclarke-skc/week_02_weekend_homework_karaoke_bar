@@ -23,9 +23,11 @@ class BarTab:
     def clear_tab_list(self):
         self.tab_list.clear()
 
-    def bar_tab_transaction(self, guest, room, bartab):
-        bartab.sum_total_tab()
-        guest.guest_pays_tab_total(bartab.tab_total)
-        room.take_bar_tab_payment(bartab.tab_total)
-        bartab.clear_tab_list()
-        bartab.sum_total_tab()
+# doesn't stop taking payments if guest < 18
+    def bar_tab_transaction(self, guest, room):
+        if self.legal_sale(guest):
+            self.sum_total_tab()
+            guest.guest_pays_tab_total(self.tab_total)
+            room.take_bar_tab_payment(self.tab_total)
+            self.clear_tab_list()
+            self.sum_total_tab()
