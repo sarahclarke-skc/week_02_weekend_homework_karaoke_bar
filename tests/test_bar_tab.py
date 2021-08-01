@@ -68,3 +68,5 @@ class TestBarTab(unittest.TestCase):
         self.bar_tab1.add_item_to_tab_list(self.drinks_menu [1])
         self.bar_tab1.sum_total_tab()
         self.assertEqual(650, self.bar_tab1.tab_total)
+    
+    

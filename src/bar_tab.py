@@ -19,4 +19,5 @@ class BarTab:
         self.tab_total = 0
         for item in self.tab_list:
             self.tab_total += item["price"]
-        
+
+    

@@ -3,6 +3,7 @@ import unittest
 from src.guest import Guest
 from src.room import Room
 from src.song import Song
+from src.bar_tab import BarTab
 
 class TestGuest(unittest.TestCase):
     def setUp(self):
@@ -17,7 +18,9 @@ class TestGuest(unittest.TestCase):
 
         self.song1 = Song("Satisfaction", "The Rolling Stones")
         self.song2 = Song("Daydream Believer", "The Monkees")
-    
+
+        self.bar_tab1 = BarTab(self.guest1, self.room1, "menu")
+
     def test_guest_has_name(self):
         self.assertEqual("John Lennon", self.guest1.name)
     
@@ -51,9 +54,7 @@ class TestGuest(unittest.TestCase):
     def test_guest_has_favourite_song(self):
         self.assertEqual("Satisfaction", self.guest1.favourite_song)
 
-    # def test_guest_finds_song_in_room(self):
-    #     song = self.guest1.favourite_song
-    #     find_song = self.guest1.find_song_in_room(song)
-    #     self.songs = [self.song1, self.song2]
-    #     self.guest1.find_song_in_room(song)
-    #     self.assertEqual("Woohoo! Pass me the mic!", find_song)
+    def test_guest_pays_tab_total(self):
+        self.bar_tab1.tab_total = 650
+        self.guest1.guest_pays_tab_total(self.bar_tab1.tab_total)
+        self.assertEqual(19350, self.guest1.wallet)

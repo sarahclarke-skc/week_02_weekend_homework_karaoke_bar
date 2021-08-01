@@ -1,3 +1,6 @@
+from src.bar_tab import BarTab
+
+
 class Guest:
 
     def __init__(self, name, age, wallet, song):
@@ -14,7 +17,8 @@ class Guest:
     
     def pay_for_entry(self, amount):
         self.wallet -= amount
+    
+    def guest_pays_tab_total(self, amount):
+        self.wallet -= amount
 
-    # def guest_reaction(self, room, song):
-    #         if song in room.playlist == self.favourite_song:
-    #             return "Woohoo! Pass me the mic!"
+ 
