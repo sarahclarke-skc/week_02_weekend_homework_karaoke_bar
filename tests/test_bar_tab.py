@@ -83,7 +83,7 @@ class TestBarTab(unittest.TestCase):
     def test_bar_tab_transaction(self):
         self.bar_tab1.add_item_to_tab_list(self.drinks_menu[0])
         self.bar_tab1.add_item_to_tab_list(self.drinks_menu [1])
-        self.room1.bar_tab_transaction(self.guest1, self.room1, self.bar_tab1)
+        self.bar_tab1.bar_tab_transaction(self.guest1, self.room1, self.bar_tab1)
         self.assertEqual(19350, self.guest1.wallet)
         self.assertEqual(10650, self.room1.cash_register)
         self.assertEqual([], self.bar_tab1.tab_list)

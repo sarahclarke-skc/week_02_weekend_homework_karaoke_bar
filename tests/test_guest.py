@@ -49,7 +49,7 @@ class TestGuest(unittest.TestCase):
     def test_guest_pays_for_entry_insufficient(self):
         amount = self.room1.entry_fee
         guest_cannot_pay = self.guest4.pay_for_entry(amount)
-        self.assertEqual(None, guest_cannot_pay)
+        self.assertEqual("Insufficient funds", guest_cannot_pay)
     
     def test_guest_has_favourite_song(self):
         self.assertEqual("Satisfaction", self.guest1.favourite_song)

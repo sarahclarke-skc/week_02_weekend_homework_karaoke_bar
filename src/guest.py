@@ -16,11 +16,15 @@ class Guest:
             return False
     
     def pay_for_entry(self, amount):
-        self.can_afford_payment(amount)
-        self.wallet -= amount
+        if self.can_afford_payment(amount) == True:
+            self.wallet -= amount
+        else:
+            return "Insufficient funds"
     
     def guest_pays_tab_total(self, amount):
-        self.can_afford_payment(amount)
-        self.wallet -= amount
+        if self.can_afford_payment(amount) == True:
+            self.wallet -= amount
+        else:
+            return "Insufficient funds"
 
  
