@@ -15,7 +15,8 @@ class BarTab:
     def add_item_to_tab_list(self, item):
         self.tab_list.append(item)
 
-  # Can't get the test to pass --> list indices must be intergers or slices
-    # def sum_total_tab(self):
-    #    self.tab_total += self.tab_list["price"]
+    def sum_total_tab(self):
+        self.tab_total = 0
+        for item in self.tab_list:
+            self.tab_total += item["price"]
         

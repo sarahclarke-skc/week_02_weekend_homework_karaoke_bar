@@ -62,7 +62,7 @@ class TestBarTab(unittest.TestCase):
         self.bar_tab1.add_item_to_tab_list(self.drinks_menu [1])
         self.assertEqual(2, len(self.bar_tab1.tab_list))
 
-    @unittest.skip("delete this line to run the test")
+    # @unittest.skip("delete this line to run the test")
     def test_sum_tab_total(self):
         self.bar_tab1.add_item_to_tab_list(self.drinks_menu[0])
         self.bar_tab1.add_item_to_tab_list(self.drinks_menu [1])
