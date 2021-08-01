@@ -69,4 +69,8 @@ class TestBarTab(unittest.TestCase):
         self.bar_tab1.sum_total_tab()
         self.assertEqual(650, self.bar_tab1.tab_total)
     
-    
+    def test_clear_tab_list_after_payment(self):
+        self.bar_tab1.add_item_to_tab_list(self.drinks_menu[0])
+        self.bar_tab1.add_item_to_tab_list(self.drinks_menu [1])
+        self.bar_tab1.clear_tab_list()
+        self.assertEqual([], self.bar_tab1.tab_list)

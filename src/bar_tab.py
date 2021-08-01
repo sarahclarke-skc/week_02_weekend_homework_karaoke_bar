@@ -20,4 +20,5 @@ class BarTab:
         for item in self.tab_list:
             self.tab_total += item["price"]
 
-    
+    def clear_tab_list(self):
+        self.tab_list.clear()
