@@ -89,7 +89,7 @@ class TestBarTab(unittest.TestCase):
         self.assertEqual([], self.bar_tab1.tab_list)
         self.assertEqual(0, self.bar_tab1.tab_total)
 
-#following not working --> cash register still increases
+# following not working --> cash register still increases
     @unittest.skip("delete this line to run the test")
     def test_bar_tab_transaction_insuffient(self):
         self.bar_tab1.add_item_to_tab_list(self.drinks_menu[0])

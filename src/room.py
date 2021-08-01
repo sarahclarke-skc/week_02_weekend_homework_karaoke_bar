@@ -52,10 +52,5 @@ class Room:
     def take_bar_tab_payment(self, amount):
         self.cash_register += amount
 
-    # def bar_tab_transaction(self, guest, room, bartab):
-    #     bartab.sum_total_tab()
-    #     guest.guest_pays_tab_total(bartab.tab_total)
-    #     room.take_bar_tab_payment(bartab.tab_total)
-    #     bartab.clear_tab_list()
-    #     bartab.sum_total_tab()
+
         
