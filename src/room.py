@@ -21,7 +21,7 @@ class Room:
          return "Sorry, this room is full."
 
     def full_check_in_to_room(self, guest):
-        if self.capacity >= len(self.guests) and guest.can_afford_entry(self.entry_fee):
+        if self.capacity >= len(self.guests) and guest.can_afford_payment(self.entry_fee):
             guest.pay_for_entry(self.entry_fee)
             self.cash_register += self.entry_fee
             self.add_guest_to_room(guest)

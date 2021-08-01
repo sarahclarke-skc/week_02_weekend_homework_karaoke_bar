@@ -30,14 +30,14 @@ class TestGuest(unittest.TestCase):
     def test_guest_has_wallet(self):
         self.assertEqual(20000, self.guest1.wallet)
     
-    def test_guest_can_afford_entry_true(self):
+    def test_guest_can_afford_payment_true(self):
         entry_fee = self.room1.entry_fee
-        can_afford_entry = self.guest1.can_afford_entry(entry_fee)
+        can_afford_entry = self.guest1.can_afford_payment(entry_fee)
         self.assertEqual(True, can_afford_entry)
 
     def test_guest_can_afford_entry_false(self):
         entry_fee = self.room1.entry_fee
-        can_afford_entry = self.guest4.can_afford_entry(entry_fee)
+        can_afford_entry = self.guest4.can_afford_payment(entry_fee)
         self.assertEqual(False, can_afford_entry)
     
     def test_guest_pays_for_entry(self):

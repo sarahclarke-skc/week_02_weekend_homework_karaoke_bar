@@ -9,16 +9,18 @@ class Guest:
         self.wallet = wallet
         self.favourite_song = song
     
-    def can_afford_entry(self, amount):
+    def can_afford_payment(self, amount):
         if self.wallet >= amount:
             return True
         else:
             return False
     
     def pay_for_entry(self, amount):
+        self.can_afford_payment(amount)
         self.wallet -= amount
     
     def guest_pays_tab_total(self, amount):
+        self.can_afford_payment(amount)
         self.wallet -= amount
 
  
