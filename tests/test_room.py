@@ -87,5 +87,6 @@ class TestRoom(unittest.TestCase):
         self.assertEqual(2, len(self.room1.playlist))
     
     # def test_find_song_by_title(self):
+    #     self.room1.add_songs_to_room(self.songs)
     #     song = self.room1.find_song_by_title("Satisfaction")
-    #     self.assertEqual(self.song1, song)
+    #     self.assertEqual(self.song1.song_name, song)
