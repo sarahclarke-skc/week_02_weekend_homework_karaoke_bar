@@ -54,7 +54,7 @@ class TestBarTab(unittest.TestCase):
 
     def test_legal_sale_false(self):
         guest = self.guest4
-        self.assertEqual("You aren't old enough yet.", self.bar_tab1.legal_sale(guest))
+        self.assertEqual(False, self.bar_tab1.legal_sale(guest))
 
     def test_add_to_tab_list(self):
         guest = self.guest1
@@ -90,12 +90,12 @@ class TestBarTab(unittest.TestCase):
         self.assertEqual(0, self.bar_tab1.tab_total)
 
 # following not working --> cash register still increases
-    @unittest.skip("delete this line to run the test")
+    # @unittest.skip("delete this line to run the test")
     def test_bar_tab_transaction_insuffient(self):
         self.bar_tab1.add_item_to_tab_list(self.drinks_menu[0])
         self.bar_tab1.add_item_to_tab_list(self.drinks_menu [1])
         self.bar_tab1.bar_tab_transaction(self.guest4, self.room1)
         self.assertEqual(500, self.guest4.wallet)
         self.assertEqual(10000, self.room1.cash_register)
-        self.assertEqual([], self.bar_tab1.tab_list)
+        self.assertEqual(2, len(self.bar_tab1.tab_list))
         self.assertEqual(0, self.bar_tab1.tab_total)

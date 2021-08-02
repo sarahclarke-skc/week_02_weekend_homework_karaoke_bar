@@ -10,7 +10,7 @@ class BarTab:
         if guest.age >= 18:
             return True
         else:
-            return "You aren't old enough yet."
+            return False
     
     def add_item_to_tab_list(self, item):
         self.tab_list.append(item)
